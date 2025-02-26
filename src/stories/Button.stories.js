@@ -1,8 +1,8 @@
-import MyButton from './Button.vue';
+import Button from '../components/button/index.vue';
 
 export default {
   title: 'Njuskalo/Button',
-  component: MyButton,
+  component: Button,
   tags: ['autodocs'],
 };
 
@@ -31,7 +31,6 @@ export const ButtonVariations = {
     size: {
       control: 'select',
       options: [
-        '',
         'small',
         'full',
         'mobile-context-full',
@@ -40,16 +39,16 @@ export const ButtonVariations = {
     },
   },
   render: (args) => ({
-    components: { MyButton },
+    components: { Button },
     setup() {
       return { args };
     },
     template: `
       <div>
         <p><strong>Current Style:</strong> {{ args.variation }} {{ args.size ? '+ ' + args.size : '' }}</p>
-        <MyButton :variation="args.variation" :size="args.size">
+        <Button :variation="args.variation" :size="args.size">
             {{ args.label || 'Button ' + args.variation }}
-        </MyButton>
+        </Button>
       </div>
     `,
   }),
